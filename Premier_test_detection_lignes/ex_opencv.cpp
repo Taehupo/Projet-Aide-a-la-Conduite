@@ -21,45 +21,48 @@ void trackObject(IplImage* imgThresh, int& ni){ //track the possition of the bal
   //iterating through each contour
   while(contour)
   {
-  //obtain a sequence of points of the countour, pointed by the variable 'countour'
-  result = cvApproxPoly(contour, sizeof(CvContour), storage, CV_POLY_APPROX_DP, cvContourPerimeter(contour)*0.02, 0);
+    //obtain a sequence of points of the countour, pointed by the variable 'countour'
+    result = cvApproxPoly(contour, sizeof(CvContour), storage, CV_POLY_APPROX_DP, cvContourPerimeter(contour)*0.02, 0);
 
-  //if there are 3 vertices  in the contour and the area of the triangle is more than 100 pixels
-  if(result->total==4 && fabs(cvContourArea(result, CV_WHOLE_SEQ))>100 )
-  {
-    //iterating through each point
-    CvPoint *pt[4];
-    for(int i=0;i<4;i++){
-      pt[i] = (CvPoint*)cvGetSeqElem(result, i);
+    //if there are 3 vertices  in the contour and the area of the triangle is more than 100 pixels
+    if(result->total==4 && fabs(cvContourArea(result, CV_WHOLE_SEQ))>100 )
+    {
+      //iterating through each point
+      CvPoint *pt[4];
+      for(int i=0;i<4;i++){
+        pt[i] = (CvPoint*)cvGetSeqElem(result, i);
+      }
+
+      int posX=( pt[0]->x + pt[1]->x + pt[2]->x )/3;
+      int posY=( pt[0]->y + pt[1]->y + pt[2]->y )/3;
+      if (posY>400) {
+        if(posX > 300 ){
+          if(lastX1>=0 && lastY1>=0 && posX>=0 && posY>=0){
+            // Draw a red line from the previous point to the current point
+            cvLine(imgTracking, cvPoint(posX, posY), cvPoint(posX, posY), cvScalar(0,0,255), 10);
+            cvLine(imgTracking, cvPoint(lastX1, lastY2), cvPoint(posX, posY), cvScalar(0,0,255),0);
+          }
+
+          ni++; cout << "++" << endl;
+          lastX1 = posX;
+          lastY1 = posY;  
+        }
+        else{
+          if(lastX2>=0 && lastY2>=0 && posX>=0 && posY>=0){
+            // Draw a blue line from the previous point to the current point
+            cvLine(imgTracking, cvPoint(posX, posY), cvPoint(posX, posY), cvScalar(255,0,0), 10);
+            cvLine(imgTracking, cvPoint(lastX2, lastY2), cvPoint(posX, posY), cvScalar(255,0,0),0);
+          }
+
+          lastX2 = posX;
+          lastY2 = posY; 
+        }
+      }
     }
 
-    int posX=( pt[0]->x + pt[1]->x + pt[2]->x )/3;
-    int posY=( pt[0]->y + pt[1]->y + pt[2]->y )/3;
-    if (posY>400) {
-      if(posX > 300 ){
-        if(lastX1>=0 && lastY1>=0 && posX>=0 && posY>=0){
-          // Draw a red line from the previous point to the current point
-          cvLine(imgTracking, cvPoint(posX, posY), cvPoint(posX, posY), cvScalar(0,0,255), 10);
-        }
-        
-        ni++; cout << "++" << endl;
-        lastX1 = posX;
-        lastY1 = posY;  
-      }
-      else{
-        if(lastX2>=0 && lastY2>=0 && posX>=0 && posY>=0){
-          // Draw a blue line from the previous point to the current point
-          cvLine(imgTracking, cvPoint(posX, posY), cvPoint(posX, posY), cvScalar(255,0,0), 10);
-        }
 
-        lastX2 = posX;
-        lastY2 = posY; 
-      }
-    }
-  }
-
-  //obtain the next contour
-  contour = contour->h_next; 
+    //obtain the next contour
+    contour = contour->h_next; 
   }
 
   cvReleaseMemStorage(&storage);
@@ -114,10 +117,10 @@ int main(){
         
         
         //track the possition of the ball
-        trackObject(imgGrayScale, i);
+        trackObject(imgGrayScale, i); // fonction définie plus haut
 
         // Add the tracking image and the frame
-        cvAdd(frame, imgTracking, frame);
+        cvAdd(frame, imgTracking, frame); //On superpose les deux pour faire apparaitre les points
              
         cvShowImage("Video", frame);
         cvZero(imgTracking); // Supprimer les autres points

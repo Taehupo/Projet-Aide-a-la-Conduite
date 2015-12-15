@@ -7,7 +7,8 @@ public:
 	~OcvCore();
 	void filter();
 	void getNewFrame();
-	void showFrameWindow(std::string _titre);
+	void showFrameWindow();
+	void superpose (IplImage* _frame1, IplImage* _frame2);
 private:
 
 	std::string fileName;
