@@ -9,7 +9,7 @@ class Lane
 private:
 	unsigned int x,y;
 	long long unsigned int ID;
-	static long long unsigned int tempID = 0;
+	static long long unsigned int tempID;
 
 public:
 	Lane(unsigned int, unsigned int);
@@ -25,5 +25,7 @@ public:
 
 	void detecLane(IplImage*);
 };
+
+
 
 #endif

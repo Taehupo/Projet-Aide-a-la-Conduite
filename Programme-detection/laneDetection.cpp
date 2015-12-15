@@ -5,6 +5,8 @@ using namespace std;
 
 #include "laneDetection.hpp"
 
+long long unsigned int Lane::tempID = 0;
+
 Lane::Lane(unsigned int _x, unsigned int _y)
 :x(_x), y(_y)
 {
