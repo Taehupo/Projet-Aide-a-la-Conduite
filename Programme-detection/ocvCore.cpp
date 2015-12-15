@@ -28,9 +28,9 @@ OcvCore::~OcvCore()
 
 void OcvCore::filter() //Applique le filtre sur l'image contenue dans frame
 {
-	imgGrayScale = cvCreateImage(cvGetSize(frame),8,1);
-	cvCvtColor(frame, imgGrayScale, CV_BGR2GRAY);
-	cvThreshold(imgGrayScale, imgGrayScale, 100, 255, CV_THRESH_BINARY_INV);
+	imgGrayScale = cvCreateImage(cvGetSize(frame),8,1); //création de l'image
+	cvCvtColor(frame, imgGrayScale, CV_BGR2GRAY); //Passage en gris
+	cvThreshold(imgGrayScale, imgGrayScale, 100, 255, CV_THRESH_BINARY_INV); //Aff binaire N/B
 }
 
 void OcvCore::getNewFrame()
