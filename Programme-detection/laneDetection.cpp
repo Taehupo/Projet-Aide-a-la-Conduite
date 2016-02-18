@@ -1,7 +1,7 @@
 /**
-* \file laneDetection.cpp
-* \author {Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier}
-* \details Cette classe permet la détection des lignes 
+*\file laneDetection.cpp
+*\author {Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier}
+*\details Cette classe permet la détection des lignes 
 */
 #include <cv.h>
 #include <highgui.h>
@@ -13,9 +13,6 @@ using namespace std;
 
 long long unsigned int Lane::tempID = 0; /*! Id temporaire initilisé à 0 permettant d'être donné au différente lignes détectés */
 
-/**
-* \brief Constreur et Constructeur de copie
-*/
 Lane::Lane(unsigned int _x, unsigned int _y)
 :x(_x), y(_y)
 {
@@ -34,44 +31,29 @@ Lane::Lane()
 Lane::~Lane()
 {}
 
-/**
-* \brief Getter : renvoie x
-*/
 unsigned int Lane::getLaneX()
 {
-	return x;
+	return x; /*! renvoie x */
 }
 
-/**
-* \brief Getter : renvoie y
-*/
 unsigned int Lane::getLaneY()
 {
-	return y;
+	return y; /*! renvoie y */
 }
 
-/**
-* \brief Getter : renvoie l'ID
-*/
 long long unsigned int Lane::getLaneID()
 {
-	return ID;
+	return ID; /*! renvoie l'ID de la ligne */
 }
 
-/**
-* \brief Setter : on modifie la valeur de x
-*/
 void Lane::setLaneX(unsigned int _x)
 {
-	x = _x;
+	x = _x; /*! Modifiation de x */
 }
 
-/**
-* \brief Setter : on modifie la valeur de y
-*/
 void Lane::setLaneY(unsigned int _y)
 {
-	y = _y;
+	y = _y; /*! Modifiation de y */
 }
 
 /**
