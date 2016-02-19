@@ -8,8 +8,14 @@
 #ifndef OCVCORE_HPP
 #define OCVCORE_HPP
 
+/**
+* \class ocvCore
+* \brief Classe pour la vidéo
+* Cette classe permet la reconnaissance et la détection des lignes
+*/
 class OcvCore {
 public:
+
 	OcvCore(std::string _fileName);
 	~OcvCore();
 	void filter();
@@ -17,14 +23,13 @@ public:
 	void showFrameWindow();
 	void superpose (IplImage* _frame1, IplImage* _frame2);
 private:
-
 	std::string fileName;
-	CvCapture * capture; //Vidéo
+	CvCapture * capture; 				/// Vidéo
 
-	IplImage* frame=0; //Une image de la vidéo
-	IplImage* imgGrayScale; //Image noir/blanc
+	IplImage* frame=0; 					/// Une image de la vidéo
+	IplImage* imgGrayScale; 			/// Image noir/blanc
 
-	IplImage* imgTracking=0; //Image sur laquelle on place les points qui désignent les lignes détectées (bleu et rouge)
+	IplImage* imgTracking=0; 			/// Image sur laquelle on place les points qui désignent les lignes détectées (bleu et rouge)
 
 };
 
