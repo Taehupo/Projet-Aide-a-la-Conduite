@@ -9,7 +9,7 @@
 #define OCVCORE_HPP
 
 /**
-* \class ocvCore
+* \class OcvCore
 * \brief Classe pour la vidéo
 * Cette classe permet la reconnaissance et la détection des lignes
 */
