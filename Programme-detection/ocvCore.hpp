@@ -1,3 +1,10 @@
+/**
+*\file laneDetection.cpp
+*\author Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier
+*\details Cette classe permet la détection des lignes 
+*\date 19 Février 2016
+*/
+
 #ifndef OCVCORE_HPP
 #define OCVCORE_HPP
 

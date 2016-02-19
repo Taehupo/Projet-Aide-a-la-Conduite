@@ -1,7 +1,8 @@
 /**
 *\file laneDetection.cpp
-*\author {Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier}
+*\author Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier
 *\details Cette classe permet la détection des lignes 
+*\date 19 Février 2016
 */
 #include <cv.h>
 #include <highgui.h>
@@ -57,7 +58,9 @@ void Lane::setLaneY(unsigned int _y)
 }
 
 /**
-* \brief Code permettant la détection des lignes, le but et d'ajouter la valeurs obtenue et incrementer de 1 le total des valeurs
+* \fn void detecLane(IplImage* imgTresh)
+* \brief Fonction permettant la détection des lignes
+* On doit pouvoir détecter les lignes de notre voie de circulation : celle de droite et celle de gauche.
 */
 void detecLane(IplImage* imgTresh)
 {
