@@ -1,6 +1,6 @@
 /**
-*\file laneDetection.cpp
-*\author Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier
+*\file laneDetection.hpp
+*\author Gabriel Aubert - Johann Denoize - Etienne Dubuisson - Mathieu Terrier ;
 *\details Cette classe permet la détection des lignes 
 *\date 19 Février 2016
 */
@@ -13,7 +13,7 @@
 
 /**
 * \class Lane
-* \brief Classe pour la fonction F1 : Détection et lecture des lignes
+* \brief Classe pour la fonction F1 : "Détection et lecture des lignes".\n
 * Cette classe permet la reconnaissance et la détection des lignes
 */
 class Lane 

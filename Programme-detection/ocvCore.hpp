@@ -1,7 +1,7 @@
 /**
-*\file laneDetection.cpp
-*\author Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier
-*\details Cette classe permet la détection des lignes 
+*\file ocvCore.hpp
+*\author Gabriel Aubert - Johann Denoize - Etienne Dubuisson - Mathieu Terrier ;
+*\details Cette classe est la pour l'analyse de la vidéo et sont rendu
 *\date 19 Février 2016
 */
 

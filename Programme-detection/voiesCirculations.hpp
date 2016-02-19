@@ -1,7 +1,7 @@
 /**
-*\file laneDetection.cpp
-*\author Gabriel Aubert Johann Denoize Etienne Dubuisson Mathieu Terrier
-*\details Cette classe permet la détection des lignes 
+*\file voiesCirculations.hpp
+*\author Gabriel Aubert - Johann Denoize - Etienne Dubuisson - Mathieu Terrier ;
+*\details Cette classe permet la détection des voie de circulations
 *\date 19 Février 2016
 */
 
