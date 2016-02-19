@@ -1,0 +1,11 @@
+Parammetrage de Doxygen :
+Step 1 : /home/draz/Bureau/Ptut/Documentation
+projet : source code directory : /home/draz/Bureau/Ptut/Programme-detection
+	Destination directory : /home/draz/Bureau/Ptut/Documentation
+next
+next
+a voir avec mr desbenoit
+next
+button 2 ou 1 
+next
+run

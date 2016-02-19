@@ -9,18 +9,19 @@
 #define VOIECIRCULATION_HPP
 
 /**
-* \class VoieC
-* \brief Classe pour la fonction F1 : "Détection et lecture des lignes" et F3 : "Détermination de voies de circulation".\n
-* Cette classe permet la reconnaissance et la détection des lignes
+* \class voieCirculation
+* \brief Classe pour la fonction F3 "Détection des voies de circulation". \n
+* Cette classe permet la détection de voie de circulation à partir des lignes
 */
+
 class voieCirculation
 {
 private:
-	Lane * ligne_1;						/*! Elle ce compose de 2 lignes, correspondant au voie de circulation */
-	Lane * ligne_2;
-	unsigned int ID;					/*! Un identifiant associé à chaque ligne */
-	static unsigned int tempID; 		/*! Un identifiant temporaire associée a une ligne */
-	voieCirculation();					/*! Constructeur privé car on ne veut pas l'utiliser*/
+	Lane * ligne_1; 				/// Elle se compose d'une ligne détectée
+	Lane * ligne_2; 				/// Et d'une autre ligne
+	unsigned int ID;				/// D'une ID pour pouvoir reconnaitre quelle est cette voie
+	static unsigned int tempID;		/// Une ID temporaire pour s'occuper des affectation & compter le nombre de lignes
+	voieCirculation();				
 
 public:
 	voieCirculation(Lane*, Lane*);
