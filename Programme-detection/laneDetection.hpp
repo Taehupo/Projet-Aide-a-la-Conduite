@@ -16,7 +16,7 @@
 * \brief Classe pour la fonction F1 : "Détection et lecture des lignes".\n
 * Cette classe permet la reconnaissance et la détection des lignes
 */
-class Lane 
+class Lane
 {
 private:
 	unsigned int x,y;							/*! Elle se compose de 2 entier non signed x et y qui correspondent à la ligne droite et la ligne gauche */
