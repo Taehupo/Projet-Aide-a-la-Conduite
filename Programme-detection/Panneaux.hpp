@@ -9,7 +9,7 @@
 #define PANNEAUX_HPP
 
 /**
-* \class Lane
+* \class Panneaux
 * \brief Classe pour la fonction F2 & F6 : "Détection des Panneaux".\n
 * Cette classe permet la reconnaissance, la détection & l'enregistrement des Panneaux de circulation
 * Elle hérite d'Element
