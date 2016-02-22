@@ -14,7 +14,7 @@
 * Cette classe permet la détection de voie de circulation à partir des lignes
 */
 
-class voieCirculation : pulic Element
+class voieCirculation : public Element
 {
 private:
 	Lane * ligne_1; 				/// Elle se compose d'une ligne détectée
