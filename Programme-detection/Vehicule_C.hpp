@@ -7,7 +7,7 @@
 #ifndef VEHICULEC_HPP
 #define VEHICULEC_HPP
 /**
-* \class Vehicule
+* \class Vehicule_C
 * \brief Classe répondant aux fonctions : F3 : Détermination de voies de circulation, F4 : Détermination de la vitesse du véhicule et F8 : Détection des distances de sécurité.\n
 * Cette classe permetra d'afficher les informations liée au véhicule de l'utilisateur.\n
 */

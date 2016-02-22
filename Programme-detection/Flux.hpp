@@ -10,7 +10,7 @@
 
 
 /**
-* \class Lane
+* \class Flux
 * \brief Classe pour contenir le flux vidéo.\n
 * Cette classe d'accéder facilement au flux vidéo souhaité
 */

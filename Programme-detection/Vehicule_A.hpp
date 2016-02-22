@@ -9,7 +9,7 @@
 #define VEHICULEA_HPP
 
 /**
-* \class Lane
+* \class Vehicule_A
 * \brief Classe pour la fonction F7 : "Détection d'obstacles".\n
 * Cette classe permet la reconnaissance et la détection de véhicules autres
 * que celui du conducteur

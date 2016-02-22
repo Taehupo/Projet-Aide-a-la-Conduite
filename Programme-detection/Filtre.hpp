@@ -9,7 +9,7 @@
 #define FILTRE_HPP
 
 /**
-* \class Lane
+* \class Filtre
 * \brief Classe pour le pré traitement du flux vidéo.\n
 * Cette classe permet d'altérer le flux vidéo original pour permettre les traitemnts
 */
