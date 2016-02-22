@@ -9,7 +9,7 @@
 /**
 * \class Vehicule_C
 * \brief Classe répondant aux fonctions : F3 : Détermination de voies de circulation, F4 : Détermination de la vitesse du véhicule et F8 : Détection des distances de sécurité.\n
-* Cette classe permetra d'afficher les informations liée au véhicule de l'utilisateur.\n
+* Cette classe permetra d'afficher les informations liée au véhicule de l'utilisateur.
 */
 class Vehicule_C : public Element
 {
