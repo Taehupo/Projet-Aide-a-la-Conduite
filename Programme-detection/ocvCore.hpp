@@ -22,6 +22,7 @@ public:
 	void getNewFrame();
 	void showFrameWindow();
 	void superpose (IplImage* _frame1, IplImage* _frame2);
+	void traceGrille();
 private:
 	std::string fileName;
 	CvCapture * capture; 				// Vidéo

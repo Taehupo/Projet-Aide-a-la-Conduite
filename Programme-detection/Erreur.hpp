@@ -16,11 +16,15 @@ class Erreur : public Element
 {
 private:
 	string type_E;	// L'erreur rencontrer aura un nom
+	unsigned int xPos, yPos; /// Cette classe prend 2 insigned int pour positionner les messages textuels
+	double vr; // double de la vitesse récupérer pour convertion en string 
 	Erreur();
 public:
 	Erreur(string);
 	~Erreur();
 	
+	void affichePVR(unsigned int xPos, unsigned int yPos);
+	const string doubleToStr(double vr)
 };
 
 #endif

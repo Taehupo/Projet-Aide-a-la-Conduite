@@ -13,10 +13,13 @@
 */
 class Vehicule_C : public Element
 {
+private:
+	double vitesse [3] = {100}; // Le mal a l'etat pur, a améliorer
 public:
 	Vehicule_C();
 	~Vehicule_C();
 	
+	void avgSpeed() /// Ancienne fonction qui doit permetre de calculer la vitesse de notre véhicule.
 };
 
 #endif

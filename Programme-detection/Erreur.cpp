@@ -22,3 +22,20 @@ Erreur::Erreur(string _texte)
 
 Erreur::~Erreur()
 {}
+
+void affichePVR(unsigned int xPos, unsigned int yPos) /// Permet d'afficher une icone attention a coté de la vitesse si le conducteur vient a dépasser la vitesse limite du derniere panneau de vitesse détecté.
+{
+	cvLine(imgTracking, cvPoint(xPos,yPos), cvPoint(xPos+30,yPos), cvScalar(0,0,255),2);
+  	cvLine(imgTracking, cvPoint(xPos,yPos), cvPoint(xPos+15,yPos-30), cvScalar(0,0,255),2);
+  	cvLine(imgTracking, cvPoint(xPos+15,yPos-30), cvPoint(xPos+30,yPos), cvScalar(0,0,255),2);
+
+  	cvLine(imgTracking, cvPoint(xPos+15,yPos-22), cvPoint(xPos+15,yPos-10), cvScalar(0,0,255),2);
+ 	cvLine(imgTracking, cvPoint(xPos+15,yPos-5), cvPoint(xPos+15,yPos-5), cvScalar(0,0,255),2);
+}
+
+const string doubleToStr(double vr) /// Permet l'affichage de la vitesse du véhicule du conducteur
+{
+	stringstream ss;
+ 	 ss << x;
+  	return ss.str(); /// renvoie le la vitesse du véhicule en une chaine de caractère
+}

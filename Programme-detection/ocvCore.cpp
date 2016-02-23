@@ -63,3 +63,15 @@ void OcvCore::showFrameWindow()
 {	
 	cvShowImage("frame", frame);
 }
+
+void traceGrille()/// Cette fonction permet d'afficher un quadrillage sur la vidéo, on voit alors les différent carré ou l'ont peut détecté des éléments.\n Cela permet d'observer par exemple les zones de la détection des lignes.
+{
+	for (unsigned int i=0; i<500; i+=100) 
+	{
+	    for (unsigned int j=0; j<1000; j+=100) 
+	    {
+	     	cvLine(imgTracking, cvPoint(j,0), cvPoint(j,1000), cvScalar(255,255,255),1); // trace les lignes verticales
+	    }
+		cvLine(imgTracking, cvPoint(0,i), cvPoint(1000,i), cvScalar(255,255,255),1); // trace les lignes horizontales
+	}
+}
