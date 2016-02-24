@@ -20,7 +20,7 @@ private:
 	double vr; // la vitesse (sous forme d'un double) est récupérée pour convertion en string 
 	Erreur();
 public:
-	Erreur(string);
+	Erreur(string, unsigned int, unsigned int, double);
 	~Erreur();
 	
 	void affichePVR(unsigned int xPos, unsigned int yPos);

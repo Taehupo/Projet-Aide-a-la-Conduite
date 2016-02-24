@@ -15,8 +15,8 @@ Erreur::Erreur()
 :type_E("Erreur Invalide")
 {throw runtime_error("Pas de construction d'erreur par défaut");} /// Une erreur dépend d'une action donc pas de constructeur par défaut.
 
-Erreur::Erreur(string _texte)
-:type_E(_texte)
+Erreur::Erreur(string _texte, unsigned int _x, unsigned int _y, double v)
+:type_E(_texte), xPos(x), yPos(y), vr(v)
 {}
 
 
