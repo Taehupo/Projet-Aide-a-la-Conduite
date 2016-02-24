@@ -4,8 +4,8 @@
 *\details Cette classe permet l'affichage d'erreur textuel ou sonore pour prevenir le conducteurs et attirer son attention
 *\date 22 Février 2016
 */
-#ifndef Erreur
-#define Erreur
+#ifndef ERREUR_HPP
+#define ERREUR_HPP
 /**
 * \class Erreur
 * \brief Classe répondant à la fonction : F9 : Avertissements écrits et sonores.\n
