@@ -22,6 +22,8 @@ private:
 	unsigned int x,y;							/*! Elle se compose de 2 entier non signed x et y qui correspondent à la ligne droite et la ligne gauche */
 	long long unsigned int ID;					/*! Un identifiant associé à chaque ligne */
 	static long long unsigned int tempID;		/*! Un identifiant temporaire associée a une ligne */
+	// Ajout revue proto2
+	double centrey = 300;						/*! Position initiale du centre (entre deux lignes) */
 
 public:
 	Lane(unsigned int, unsigned int);
@@ -35,7 +37,12 @@ public:
 	void setLaneX(unsigned int);
 	void setLaneY(unsigned int);
 
-	void detecLane(IplImage*);
+	void detecLane(IplImage*); // A supprimer ?
+
+	// Ajout revue proto2
+	double distance2pt (CvPoint* p0, CvPoint* p1);
+	void swapCvPoint (CvPoint * p1, CvPoint * p2);
+	bool ligne (CvPoint *pt[4]);
 };
 
 

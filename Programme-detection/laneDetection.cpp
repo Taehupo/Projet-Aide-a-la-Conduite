@@ -55,8 +55,52 @@ void Lane::setLaneY(unsigned int _y)
 	y = _y; /*! Modifiation de y */
 }
 
-void detecLane(IplImage* imgTresh)
+void Lane::detecLane(IplImage* imgTresh)
 {
 	/*! Permet de détecter les lignes : celle de droite et celle de gauche, sur une image.*/
 	/*! fonction à compléter : supprimer ce commentaire un fois remplit */
+}
+
+double Lane::distance2pt (CvPoint* p0, CvPoint* p1)
+{ 
+	return sqrt(pow(p0->x - p1->x, 2) + pow(p0->y - p1->y,2)); /*! Distance entre deux points*/
+}
+
+void Lane::swapCvPoint (CvPoint * p1, CvPoint * p2) 
+{
+	CvPoint tmp = *p1;
+	*p1 = *p2;
+	*p2 = tmp;
+}
+
+bool Lane::ligne (CvPoint *pt[4]) {
+/*! Permet de detecter la ligne ? */
+	double taille[4];
+	taille[0] = distance2pt(pt[0], pt[1]);
+	taille[1] = distance2pt(pt[1], pt[2]);
+	taille[2] = distance2pt(pt[2], pt[3]);
+	taille[3] = distance2pt(pt[3], pt[0]);
+	
+	if (taille[0]<taille[1])
+	{
+		int tmp = taille[0];
+		taille[0]=taille[1];
+		taille[1]=tmp;
+	}
+	
+	return taille[2]>0,75*taille[3];
+	
+	/*
+	for (uint i=0; i<2; ++i)
+	{		
+		if (pt[0]>pt[1])
+			swapCvPoint(pt[0], pt[1]);
+		if (pt[2]>pt[3])
+			swapCvPoint(pt[2], pt[3]);
+		if (pt[1]>pt[2])
+			swapCvPoint(pt[2], pt[1]);
+	}
+	
+	if (distance2pt[])
+	*/
 }
