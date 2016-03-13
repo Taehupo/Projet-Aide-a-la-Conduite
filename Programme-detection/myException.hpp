@@ -12,7 +12,8 @@
 * \brief Une classe d'exception. \n
 * Cette classe permet d'attraper et de gérer les exceptions.
 */
-class myException
+class myException : public exception
+
 {
 private:
 

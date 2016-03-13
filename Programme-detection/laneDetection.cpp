@@ -73,8 +73,9 @@ void Lane::swapCvPoint (CvPoint * p1, CvPoint * p2)
 	*p2 = tmp;
 }
 
-bool Lane::ligne (CvPoint *pt[4]) {
-/*! Permet de detecter la ligne ? */
+bool Lane::ligne (CvPoint *pt[4])
+{
+	/*! Permet de detecter la ligne ? */
 	double taille[4];
 	taille[0] = distance2pt(pt[0], pt[1]);
 	taille[1] = distance2pt(pt[1], pt[2]);

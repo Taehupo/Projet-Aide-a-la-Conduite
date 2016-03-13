@@ -37,7 +37,7 @@ public:
 	void setLaneX(unsigned int);
 	void setLaneY(unsigned int);
 
-	void detecLane(IplImage*); // A supprimer ?
+	void detecLane(IplImage*); // A supprimer ? Surement, à disctuer avec tout le monde & Etienne
 
 	// Ajout revue proto2
 	double distance2pt (CvPoint* p0, CvPoint* p1);
