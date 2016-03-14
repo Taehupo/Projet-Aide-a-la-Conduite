@@ -23,7 +23,7 @@ private:
 	long long unsigned int ID;					/*! Un identifiant associé à chaque ligne */
 	static long long unsigned int tempID;		/*! Un identifiant temporaire associée a une ligne */
 	// Ajout revue proto2
-	double centrey = 300;						/*! Position initiale du centre (entre deux lignes) */
+	
 
 public:
 	Lane(unsigned int, unsigned int);
