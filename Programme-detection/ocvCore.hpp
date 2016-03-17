@@ -8,18 +8,23 @@
 #ifndef OCVCORE_HPP
 #define OCVCORE_HPP
 
+
 /**
-* \class OcvCore
-* \brief Classe pour la vidéo.\n
-* Cette classe permet la reconnaissance et la détection des lignes.
+/* \struc S_Ligne "Structure d'une ligne"
+/* \brief Cette structure composé d'un tableau de 5 points, une position x et y et d'un bool permetant de savoir si elle est utilisé
+/* permet de recupérer les ligne une fois utlisé dasns la classe à laquel elle est liée : OcvCore.
 */
-// Structure S_Ligne nécéssaire à trackObject()
 typedef struct {
 	CvPoint points[4];
 	int posX, posY;
 	bool utilisee = false;
 } S_Ligne;
 
+/**
+* \class OcvCore
+* \brief Classe pour la vidéo.\n
+* Cette classe permet la reconnaissance et la détection des lignes.
+*/
 class OcvCore {
 public:
 
