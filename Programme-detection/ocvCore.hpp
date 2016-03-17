@@ -34,7 +34,7 @@ public:
 	void getNewFrame();
 	void showFrameWindow();
 	void superpose (IplImage* _frame1, IplImage* _frame2);
-	void traceGrille();
+	void traceGrille(IplImage* imgTracking);
 	// Ajout proto2
 	void trackObject(IplImage* imgThresh, int& ni, const int & temps); // Permet la détéction de l'ensemble des éléments : lignes, panneaux
 private:

@@ -142,6 +142,8 @@ int main(int argc, char const *argv[])
 
 		if ((char)c==72 || (char)c==104) cvSaveImage("test2.jpg", frame);
 
+
+		/*Pas toucher début*/
         //Wait 10mS
 
         if ((char)c=='g' || (char)c=='G') grid=!grid; //affichage de la grille
@@ -150,6 +152,8 @@ int main(int argc, char const *argv[])
         if ((char)c=='p') temps =1; //ralentis
         if ((char)c=='o') temps =0; //pause ou pas à pas
         if((char)c==27 ) break;
+
+        /*Pas troucher fin*/
         
         /*
         	Nettoyage
