@@ -10,8 +10,8 @@
 
 
 /**
-/* \struc S_Ligne "Structure d'une ligne"
-/* \brief Cette structure composé d'un tableau de 5 points, une position x et y et d'un bool permetant de savoir si elle est utilisé,
+* \struc S_Ligne "Structure d'une ligne"
+* \brief Cette structure composé d'un tableau de 5 points, une position x et y et d'un bool permetant de savoir si elle est utilisé,
 permet de recupérer les ligne une fois utlisé dasns la classe à laquel elle est liée : OcvCore.
 */
 typedef struct {

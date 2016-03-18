@@ -1,4 +1,17 @@
-#include <iostream>
+#include <cv.h>
+#include <highgui.h>
+#include <stdio.h>
+#include <time.h>
+#include <chrono>
+#include <ctime>
+#include <ratio>
+
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+
+using namespace std;
+using namespace std::chrono;
+using namespace cv;
 
 #include "laneDetection.hpp"
 #include "ocvCore.hpp"
