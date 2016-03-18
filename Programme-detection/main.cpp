@@ -23,6 +23,7 @@ int main(int argc, char const *argv[])
 			Initialisations
 		*/	
 		CvFont font;
+
 		OcvCore *chaud = new OcvCore("b.mp4"); // la !
 
 	  	cvInitFont(&font,CV_FONT_HERSHEY_SIMPLEX, 1,1); // Initialisation de la police d'écriture
@@ -137,6 +138,7 @@ int main(int argc, char const *argv[])
 		// !!!!!!!!!!!!!!!!!! //
 		trackObject(imgGrayScale, i, temps); // Recherche et affichage de tout les contours
 		
+		bool grid=false; //Afficher la grille : je sais pas s'il a une place dans le code mais mieux le vaut ici
 		if (grid) traceGrille(*chaud->getImgTracking());
 
 		//Affichage de la vidéo sur l'écran
