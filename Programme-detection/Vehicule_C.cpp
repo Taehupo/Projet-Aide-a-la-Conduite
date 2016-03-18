@@ -15,6 +15,8 @@
 #include <exception>
 
 using namespace std;
+using namespace std::chrono;
+using namespace cv;
 
 #include "Vehicule_C.hpp"
 
