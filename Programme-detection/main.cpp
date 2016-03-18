@@ -22,35 +22,36 @@ int main(int argc, char const *argv[])
 		/*
 			Initialisations
 		*/	
-	
+		CvFont font;
 	  	cvInitFont(&font,CV_FONT_HERSHEY_SIMPLEX, 1,1); // Initialisation de la police d'écriture
 		int i=0;
 	  	int temps = 15; // temps d'attente entre deux frames
-	  	
-	  	cvNamedWindow("Video"); // Vidéo modifiée 
-	    
-	    cvNamedWindow("NB"); // Window noir et blanc
 	    
 	    cvNamedWindow("Control", CV_WINDOW_AUTOSIZE); // barettes de contrôle HSV
 	    
 	    IplImage* frame=0; //Contiendra une image de la vidéo
-	    
+	    Mat frameCPP;
 	    
 	    //Chargement de la vidéo
-	    CvCapture *capture = cvCaptureFromAVI("b.mp4");
+	    VideoCapture captureCPP ("b.mp4"); // modif new main
 
-	    if(!capture){
-	        printf("Capture failure\n");
-	        return -1;
+
+	    if(!captureCPP.isOpened())
+	    {
+	        cout << "Impossible d'ouvrir la video.  ** exit(-1) **";
+    		return -1;
 	    }
-	    
-	    frame = cvQueryFrame(capture); //On charge une frame       
-	    if(!frame) return -1;
+	    captureCPP >> frameCPP; //On recup une frame
+
+	    //frame = cvQueryFrame(capture); //On charge une frame       
+	    //if(!frame) return -1;
 	   
 	    //create a blank image and assigned to 'imgTracking' which has the same size of original video
-	    imgTracking=cvCreateImage(cvGetSize(frame),IPL_DEPTH_8U, 3);
+	    Mat imgTrackingCPP (frameCPP.size(), CV_8UC3, Scalar(0));
+
+	    imgTracking=cvCreateImage(cvGetSize(frameCPP.size(),IPL_DEPTH_8U, 3);
 	    
-	    cvZero(imgTracking); //passage en n&b
+	    //cvZero(imgTracking); //passage en n&b
 
 			
 		//Paramètres du filtre HSV
