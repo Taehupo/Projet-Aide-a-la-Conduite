@@ -218,3 +218,8 @@ for (uint i=0; i<2; i++) //traçage des lignes
 
   cvReleaseMemStorage(&storage);
 }
+
+IplImage * OcvCore::getImgTracking()
+{
+	return imgTracking;
+}
