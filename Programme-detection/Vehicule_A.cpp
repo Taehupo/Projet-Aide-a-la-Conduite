@@ -13,7 +13,6 @@ using namespace std;
 #include "Vehicule_A.hpp"
 
 Vehicule_A::Vehicule_A()
-:
 {
 	///Constructeur de Vehicule_A
 }

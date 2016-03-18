@@ -15,7 +15,7 @@ unsigned int tempID = 0; /// ID temporaire initialisée
 
 voieCirculation::voieCirculation()
 :ligne_1(NULL), ligne_2(NULL)
-{throw "Pas de construction par défaut de voie de circualtion"} /// La construction par défaut est interdite
+{throw runtime_error "Pas de construction par défaut de voie de circualtion";} /// La construction par défaut est interdite
 
 voieCirculation::voieCirculation(Lane * _ligne_1, Lane * _ligne_2)
 :ligne_1(_ligne_1), ligne_2(_ligne_2)

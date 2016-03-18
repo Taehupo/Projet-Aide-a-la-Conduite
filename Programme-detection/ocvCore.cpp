@@ -76,7 +76,7 @@ void traceGrille(IplImage* imgTracking)/// Cette fonction permet d'afficher un q
 	}
 }
 
-void OcvCore::trackObject()
+void OcvCore::trackObject(IplImage* imgThresh, int& ni, const int & temps)
 {
 	CvSeq* contour;  //Pointeur vers un contour
 	CvSeq* result;   //hold sequence of points of a contour

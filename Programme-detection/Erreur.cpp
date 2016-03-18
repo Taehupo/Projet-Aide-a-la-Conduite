@@ -16,14 +16,14 @@ Erreur::Erreur()
 {throw runtime_error("Pas de construction d'erreur par défaut");} /// Une erreur dépend d'une action donc pas de constructeur par défaut.
 
 Erreur::Erreur(string _texte, unsigned int _x, unsigned int _y, double v)
-:type_E(_texte), xPos(x), yPos(y), vr(v)
+:type_E(_texte), xPos(_x), yPos(_y), vr(v)
 {}
 
 
 Erreur::~Erreur()
 {}
 
-void affichePVR(unsigned int xPos, unsigned int yPos) /// Permet d'afficher une icone attention a coté de la vitesse si le conducteur vient a dépasser la vitesse limite du derniere panneau de vitesse détecté.
+void affichePVR(unsigned int xPos, unsigned int yPos, IplImage * imgTracking) /// Permet d'afficher une icone attention a coté de la vitesse si le conducteur vient a dépasser la vitesse limite du derniere panneau de vitesse détecté.
 {
 	cvLine(imgTracking, cvPoint(xPos,yPos), cvPoint(xPos+30,yPos), cvScalar(0,0,255),2);
   	cvLine(imgTracking, cvPoint(xPos,yPos), cvPoint(xPos+15,yPos-30), cvScalar(0,0,255),2);
@@ -36,6 +36,6 @@ void affichePVR(unsigned int xPos, unsigned int yPos) /// Permet d'afficher une 
 const string doubleToStr(double vr) /// Permet l'affichage de la vitesse du véhicule du conducteur
 {
 	stringstream ss;
- 	 ss << x;
+ 	 ss << xPos;
   	return ss.str(); /// renvoie le la vitesse du véhicule en une chaine de caractère
 }

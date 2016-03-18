@@ -24,7 +24,7 @@ public:
 	~Erreur();
 	
 	void affichePVR(unsigned int xPos, unsigned int yPos);
-	const string doubleToStr(double vr)
+	const string doubleToStr(double vr);
 };
 
 #endif

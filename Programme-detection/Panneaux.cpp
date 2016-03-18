@@ -13,7 +13,6 @@ using namespace std;
 #include "Panneaux.hpp"
 
 Panneaux::Panneaux()
-:
 {
 	///Constructeur de Panneaux (En travaux)
 }

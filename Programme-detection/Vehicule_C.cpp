@@ -12,7 +12,6 @@ using namespace std;
 #include "Vehicule_C.hpp"
 
 Vehicule_C::Vehicule_C()
-:
 {
 	/// Construteur à réaliser
 }

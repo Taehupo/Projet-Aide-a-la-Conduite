@@ -12,12 +12,12 @@ using namespace std;
 
 #include "myException.hpp"
 
-myException()
+myException::myException()
 {
 	/// A completer
 }
 	
-~myException()
+myException::~myException()
 {
 	/// A completer
 }
