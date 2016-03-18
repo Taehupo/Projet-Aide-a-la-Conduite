@@ -23,6 +23,8 @@ int main(int argc, char const *argv[])
 			Initialisations
 		*/	
 		CvFont font;
+		OcvCore *chaud = new OcvCore("b.mp4"); // la !
+
 	  	cvInitFont(&font,CV_FONT_HERSHEY_SIMPLEX, 1,1); // Initialisation de la police d'écriture
 		int i=0;
 	  	int temps = 15; // temps d'attente entre deux frames
@@ -49,7 +51,8 @@ int main(int argc, char const *argv[])
 	    //create a blank image and assigned to 'imgTracking' which has the same size of original video
 	    Mat imgTrackingCPP (frameCPP.size(), CV_8UC3, Scalar(0));
 
-	    imgTracking=cvCreateImage(cvGetSize(frameCPP.size(),IPL_DEPTH_8U, 3);
+	    chaud.setImgTracking(cvCreateImage(cvGetSize(frameCPP.size(),IPL_DEPTH_8U, 3));
+	    	// tous ce qui est imgTracking devient chaud.getImgTracking()
 	    
 	    //cvZero(imgTracking); //passage en n&b
 
@@ -134,13 +137,13 @@ int main(int argc, char const *argv[])
 		// !!!!!!!!!!!!!!!!!! //
 		trackObject(imgGrayScale, i, temps); // Recherche et affichage de tout les contours
 		
-		if (grid) traceGrille(imgTracking);
+		if (grid) traceGrille(*chaud.getImgTracking());
 
 		//Affichage de la vidéo sur l'écran
-		cvPutText (imgTracking,doubleToStr(int(moyenne_vitesseT)).c_str(),cvPoint(40,30), &font, cvScalar(0,(moyenne_vitesseT<=110)?255:0,(moyenne_vitesseT>110)?255:0)); //Affichage de la vitesse BGR
+		cvPutText (*chaud.getImgTracking(),doubleToStr(int(moyenne_vitesseT)).c_str(),cvPoint(40,30), &font, cvScalar(0,(moyenne_vitesseT<=110)?255:0,(moyenne_vitesseT>110)?255:0)); //Affichage de la vitesse BGR
 		if (moyenne_vitesseT>110) panneau(5,30);
 		// Add the tracking image and the frame
-		cvAdd(frame, imgTracking, frame); //On superpose les deux pour faire apparaitre les points
+		cvAdd(frame, *chaud.getImgTracking(), frame); //On superpose les deux pour faire apparaitre les points
 
 		cvSaveImage("test.jpg", frame); //Sortie de l'image
 		imshow("Thresholded Image", imgThresholded); //show the thresholded image
@@ -173,7 +176,7 @@ int main(int argc, char const *argv[])
         	Nettoyage
         */        
         
-        cvZero(imgTracking); // Supprimer les autres points
+        cvZero(*chaud.getImgTracking()); // Supprimer les autres points
 
 		//Clean up used images
 		cvReleaseImage(&imgGrayScale); // destruction des images         
@@ -182,7 +185,7 @@ int main(int argc, char const *argv[])
     }
 
     cvDestroyAllWindows();
-    cvReleaseImage(&imgTracking);
+    cvReleaseImage(&chaud.getImgTracking());
     cvReleaseCapture(&capture); 
 
 	// Avant revu proto2
