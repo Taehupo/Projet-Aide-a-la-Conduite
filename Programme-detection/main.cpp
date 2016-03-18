@@ -51,7 +51,7 @@ int main(int argc, char const *argv[])
 	    //create a blank image and assigned to 'imgTracking' which has the same size of original video
 	    Mat imgTrackingCPP (frameCPP.size(), CV_8UC3, Scalar(0));
 
-	    chaud.setImgTracking(cvCreateImage(cvGetSize(frameCPP.size(),IPL_DEPTH_8U, 3));
+	    chaud->setImgTracking(cvCreateImage(cvGetSize(frameCPP.size(),IPL_DEPTH_8U, 3));
 	    	// tous ce qui est imgTracking devient chaud.getImgTracking()
 	    
 	    //cvZero(imgTracking); //passage en n&b
