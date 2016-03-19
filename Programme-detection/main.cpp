@@ -247,7 +247,7 @@ int main(int argc, char const *argv[])
     }
 
     cvDestroyAllWindows();
-    cvReleaseImage(&chaud->getImgTracking()); // modif
+    //cvReleaseImage(&chaud->getImgTracking()); // modif
     //cvReleaseCapture(&capture);  // pas a supprimer
 
 	// Avant revu proto2
