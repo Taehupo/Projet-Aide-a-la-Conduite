@@ -32,7 +32,7 @@ Erreur::Erreur(string _texte, unsigned int _x, unsigned int _y, double v)
 Erreur::~Erreur()
 {}
 
-void affichePVR(unsigned int xPos, unsigned int yPos, IplImage * imgTracking) /// Permet d'afficher une icone attention a coté de la vitesse si le conducteur vient a dépasser la vitesse limite du derniere panneau de vitesse détecté.
+void Erreur::affichePVR(unsigned int xPos, unsigned int yPos, IplImage * imgTracking) /// Permet d'afficher une icone attention a coté de la vitesse si le conducteur vient a dépasser la vitesse limite du derniere panneau de vitesse détecté.
 {
 	cvLine(imgTracking, cvPoint(xPos,yPos), cvPoint(xPos+30,yPos), cvScalar(0,0,255),2);
   	cvLine(imgTracking, cvPoint(xPos,yPos), cvPoint(xPos+15,yPos-30), cvScalar(0,0,255),2);
@@ -42,7 +42,7 @@ void affichePVR(unsigned int xPos, unsigned int yPos, IplImage * imgTracking) //
  	cvLine(imgTracking, cvPoint(xPos+15,yPos-5), cvPoint(xPos+15,yPos-5), cvScalar(0,0,255),2);
 }
 
-const string doubleToStr(double vr) /// Permet l'affichage de la vitesse du véhicule du conducteur
+const string Erreur::doubleToStr(double vr) /// Permet l'affichage de la vitesse du véhicule du conducteur
 {
 	stringstream ss;
  	 ss << xPos;
