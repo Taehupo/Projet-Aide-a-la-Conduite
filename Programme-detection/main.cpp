@@ -86,8 +86,8 @@ int main(int argc, char const *argv[])
 
 		while(true){
 // add
-			HSVtoRGB(&rL, &gL, &bL, iLowH, iLowS, iLowV);
-    		HSVtoRGB(&rH, &gH, &bH, iHighH, iHighS, iHighV);
+			chaud->HSVtoRGB(&rL, &gL, &bL, iLowH, iLowS, iLowV);
+    		chaud->HSVtoRGB(&rH, &gH, &bH, iHighH, iHighS, iHighV);
     		rectangle (img, Point(0,0), Point(50,50), Scalar(bL,gL,rL), -1, 8);
     		rectangle (img, Point(0,50), Point(50,100), Scalar(bH,gH,rH), -1, 8);
 		
