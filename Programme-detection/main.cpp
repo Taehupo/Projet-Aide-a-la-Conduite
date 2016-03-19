@@ -84,30 +84,64 @@ int main(int argc, char const *argv[])
 		Mat img (100, 50, CV_8UC3, Scalar(0)); // add
 
 		while(true){
+// add
+			HSVtoRGB(&rL, &gL, &bL, iLowH, iLowS, iLowV);
+    		HSVtoRGB(&rH, &gH, &bH, iHighH, iHighS, iHighV);
+    		rectangle (img, Point(0,0), Point(50,50), Scalar(bL,gL,rL), -1, 8);
+    		rectangle (img, Point(0,50), Point(50,100), Scalar(bH,gH,rH), -1, 8);
+		
+    		imshow("blbl", img);
 
 			//cout << i << endl;
-			frame = cvQueryFrame(capture);
-			if(!frame) break;
-			frame=cvCloneImage(frame); 
+// add
+			captureCPP >> frameCPP; //CPP
+    		if (frameCPP.empty())
+    			cout << "Erreur d'ouverture de la frame. ** exit(-1) **";
+    		frameCPP = frameCPP.clone();
+			
+			//frame = cvQueryFrame(capture);
+			//if(!frame) break;
+			//frame=cvCloneImage(frame); 
+
+//TEST EQUA
+
+			vector<Mat> channels; 
+			Mat img_hist_equalized;
+
+			cvtColor(frameCPP, img_hist_equalized, CV_BGR2YCrCb); //change the color image from BGR to YCrCb format
+
+			split(img_hist_equalized,channels); //split the image into channels
+
+			equalizeHist(channels[0], channels[0]); //equalize histogram on the 1st channel (Y)
+
+			merge(channels,img_hist_equalized); //merge 3 channels including the modified 1st channel into one image
+
+			cvtColor(img_hist_equalized, img_hist_equalized, CV_YCrCb2BGR); //change the color image from YCrCb to BGR format (to display image properly)
+
+//TEST EQUA END
 
 			//converting the original image into grayscale
-			IplImage* imgGrayScale = cvCreateImage(cvGetSize(frame), 8, 1); 
-			cvCvtColor(frame,imgGrayScale,CV_BGR2GRAY);
+			Mat imgGrayScaleCPP (frameCPP.size(), CV_8UC3, Scalar(0));//CPP
+			cvtColor (frameCPP, imgGrayScaleCPP, CV_BGR2GRAY);
+			threshold (imgGrayScaleCPP, imgGrayScaleCPP, 100, 255, CV_THRESH_BINARY_INV);
+
 
 			//thresholding the grayscale image to get better results
-			cvThreshold(imgGrayScale,imgGrayScale,100,255,CV_THRESH_BINARY_INV); // Inversion binaire (NOIR/BLANC)
-
-			cvShowImage("NB", imgGrayScale); //Affichage de l'image dans une fenetre
+				//cvThreshold(imgGrayScale,imgGrayScale,100,255,CV_THRESH_BINARY_INV); // Inversion binaire (NOIR/BLANC)
+				//cvShowImage("NB", imgGrayScale); //Affichage de l'image dans une fenetre
 
 			/*
 				Détection des cercles
 			*/
 		
-
-			Mat imgOriginal = cvarrToMat(frame);
-			Mat dessins = imgOriginal.clone();
 			Mat imgHSV;
-			cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV); //Conversion BGR -> HSV
+			cvtColor(frameCPP, imgHSV, COLOR_BGR2HSV); //Conversion BGR -> HSV
+			//imshow("Couleur",imgHSV);
+
+			//Mat imgOriginal = cvarrToMat(frame);
+			//Mat dessins = imgOriginal.clone();
+			//Mat imgHSV;
+			//cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV); //Conversion BGR -> HSV
 
 			Mat imgThresholded;
 			
@@ -115,7 +149,7 @@ int main(int argc, char const *argv[])
 			inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
 			
 			//Puissance de la morpho
-			int morpho = 3;
+			int morpho = 2;
 
 			//ouverture morpho
 			erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(morpho, morpho)) );
@@ -123,13 +157,13 @@ int main(int argc, char const *argv[])
 
 			//fermeture morpho
 			dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(morpho, morpho)) ); 
-			erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(morpho,  morpho)) );
+			//erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(morpho,  morpho)) );
 
 			//stockage des cercles
 			vector<Vec3f> circles;
 
 			//On détecte les cercles
-			HoughCircles( imgThresholded, circles, CV_HOUGH_GRADIENT, 1, imgThresholded.rows/8, 200, 25, 10, 50 );
+			HoughCircles( imgThresholded, circles, CV_HOUGH_GRADIENT, 0.8, imgThresholded.rows/8, 200, 25, 10, 50 );
 
 			//Affichage des cercles
 			for( size_t i = 0; i < circles.size(); i++ )
@@ -137,17 +171,27 @@ int main(int argc, char const *argv[])
 				Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
 				int radius = cvRound(circles[i][2]);
 				// circle center
-				cvCircle( frame, center, 3, Scalar(0,255,0), -1, 8, 0 );
+					circle( frameCPP, center, 3, Scalar(0,255,0), -1, 8, 0 );
 				// circle outline
-				cvCircle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
+					circle( frameCPP, center, radius, Scalar(0,0,255), 3, 8, 0 );
 			}
 			// !!!!!!!!!!!!!!!!!! //
-			trackObject(imgGrayScale, i, temps); // Recherche et affichage de tout les contours
+			IplImage newi = imgGrayScaleCPP;
+			trackObject(&newi, i, temps); // Recherche et affichage de tout les contours
 			
 			bool grid=false; //Afficher la grille : je sais pas s'il a une place dans le code mais mieux le vaut ici
 			if (grid) traceGrille(*chaud->getImgTracking());
 
 			//Affichage de la vidéo sur l'écran
+			putText (frameCPP,doubleToStr(int(moyenne_vitesseT)).c_str(),cvPoint(40,30), FONT_HERSHEY_SIMPLEX , 1, cvScalar(0,(moyenne_vitesseT<=110)?255:0,(moyenne_vitesseT>110)?255:0)); //Affichage de la vitesse BGR
+			if (moyenne_vitesseT>110) panneau(5,30);
+		
+			add(frameCPP, cvarrToMat(imgTracking), frameCPP);
+
+			imwrite("test.jpg", frameCPP); //Sortie de l'image
+		
+			imshow("video", frameCPP);
+			/*
 			cvPutText (*chaud->getImgTracking(),doubleToStr(int(moyenne_vitesseT)).c_str(),cvPoint(40,30), &font, cvScalar(0,(moyenne_vitesseT<=110)?255:0,(moyenne_vitesseT>110)?255:0)); //Affichage de la vitesse BGR
 			if (moyenne_vitesseT>110) panneau(5,30);
 			// Add the tracking image and the frame
@@ -156,7 +200,7 @@ int main(int argc, char const *argv[])
 			cvSaveImage("test.jpg", frame); //Sortie de l'image
 			imshow("Thresholded Image", imgThresholded); //show the thresholded image
 			cvShowImage("Video", frame);
-			
+			*/
 		
 			/*
 				Gestion des events
@@ -187,14 +231,14 @@ int main(int argc, char const *argv[])
 	        cvZero(*chaud->getImgTracking()); // Supprimer les autres points
 
 			//Clean up used images
-			cvReleaseImage(&imgGrayScale); // destruction des images         
-			cvReleaseImage(&frame);
+			//cvReleaseImage(&imgGrayScale); // destruction des images         
+			//cvReleaseImage(&frame);
         
     }
 
     cvDestroyAllWindows();
     cvReleaseImage(&chaud->getImgTracking());
-    cvReleaseCapture(&capture); 
+    //cvReleaseCapture(&capture);  // pas a supprimer
 
 	// Avant revu proto2
 	//	std::cout << "Lancement" << std::endl;
