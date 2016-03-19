@@ -89,7 +89,7 @@ bool Lane::ligne (CvPoint *pt[4])
 		taille[1]=tmp;
 	}
 	
-	return taille[2]>0,75*taille[3];
+	return taille[2]>0.75*taille[3];
 	
 	/*
 	for (uint i=0; i<2; ++i)
