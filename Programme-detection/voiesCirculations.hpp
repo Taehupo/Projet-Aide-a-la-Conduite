@@ -14,6 +14,8 @@
 * Cette classe permet la détection de voie de circulation à partir des lignes
 */
 
+#include "Element.hpp"
+
 class voieCirculation : public Element
 {
 private:

@@ -19,9 +19,10 @@ class Element
 private:
 	uint id;		// Un élément sera composé d'un identifiant
 	string type;	// Du texte, un entier, un son, une image, ...
-	Element();
+	
 
 public:
+	Element();
 	Element(string);
 	~Element();
 	

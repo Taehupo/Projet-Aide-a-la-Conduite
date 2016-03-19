@@ -13,7 +13,7 @@ using namespace std;
 
 Element::Element()
 :id(0), type("NaN")
-{throw runtime_error("Pas de construction par défaut d'un élément");} /// Constructeur par défaut interdit
+{} /// Constructeur par défaut interdit
 
 Element::Element(string _type)
 :type(_type)

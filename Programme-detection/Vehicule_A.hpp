@@ -15,6 +15,8 @@
 * que celui du conducteur
 */
 
+#include "Element.hpp"
+
 class Vehicule_A : public Element
 {
 public:

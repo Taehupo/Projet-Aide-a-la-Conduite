@@ -11,11 +11,14 @@
 * \brief Classe répondant aux fonctions : F3 : Détermination de voies de circulation, F4 : Détermination de la vitesse du véhicule et F8 : Détection des distances de sécurité.\n
 * Cette classe permetra d'afficher les informations liée au véhicule de l'utilisateur.
 */
+
+#include "Element.hpp"
+
 class Vehicule_C : public Element
 {
 private:
 	double vitesse [3] = {100}; // à améliorer
-	static double avg = 100;
+	static double avg;
 public:
 	Vehicule_C();
 	~Vehicule_C();

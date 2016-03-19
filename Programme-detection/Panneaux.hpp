@@ -15,6 +15,8 @@
 * Elle hérite d'Element
 */
 
+#include "Element.hpp"
+
 class Panneaux : public Element
 {
 public:
