@@ -188,7 +188,7 @@ int main(int argc, char const *argv[])
 			trackObject(&newi, i, temps); // Recherche et affichage de tout les contours
 			
 			bool grid=false; //Afficher la grille : je sais pas s'il a une place dans le code mais mieux le vaut ici
-			if (grid) traceGrille(*chaud->getImgTracking());
+			if (grid) chaud->traceGrille(*chaud->getImgTracking()); //add
 
 			//Affichage de la vidéo sur l'écran
 			putText (frameCPP,doubleToStr(int(moyenne_vitesseT)).c_str(),cvPoint(40,30), FONT_HERSHEY_SIMPLEX , 1, cvScalar(0,(moyenne_vitesseT<=110)?255:0,(moyenne_vitesseT>110)?255:0)); //Affichage de la vitesse BGR
@@ -245,7 +245,7 @@ int main(int argc, char const *argv[])
     }
 
     cvDestroyAllWindows();
-    cvReleaseImage(&chaud->getImgTracking());
+    cvReleaseImage(chaud->getImgTracking()); // modif
     //cvReleaseCapture(&capture);  // pas a supprimer
 
 	// Avant revu proto2
