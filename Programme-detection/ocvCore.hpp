@@ -37,8 +37,15 @@ public:
 	void traceGrille(IplImage* imgTracking);
 	// Ajout proto2
 	void trackObject(IplImage* imgThresh, int& ni, const int & temps); // Permet la détéction de l'ensemble des éléments : lignes, panneaux
+
+	//Getter
 	IplImage * getImgTracking();
+	CvCapture * getCapture();
+
+	//Setter
 	void setImgTracking(IplImage*);
+	void setCapture(CvCapture*);
+
 private:
 	std::string fileName;
 	CvCapture * capture; 				// Vidéo

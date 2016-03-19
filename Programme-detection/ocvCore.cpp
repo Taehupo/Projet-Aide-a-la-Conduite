@@ -236,7 +236,17 @@ IplImage * OcvCore::getImgTracking()
 	return imgTracking;
 }
 
+CvCapture * OcvCore::getCapture()
+{
+	return capture;
+}
+
 void OcvCore::setImgTracking(IplImage* temp)
 {
 	imgTracking = temp;
+}
+
+void OcvCore::setCapture(CvCapture* temp)
+{
+	capture = temp;
 }
