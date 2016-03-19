@@ -43,10 +43,12 @@ public:
 //Getter
 	IplImage * getImgTracking();
 	CvCapture * getCapture();
+	double getVitesseT();
 
 //Setter
 	void setImgTracking(IplImage*);
 	void setCapture(CvCapture*);
+	void setVitesseT(double);
 
 	//Permet la conversion de la vidéo HSV en RGB
 	void HSVtoRGB (float *r, float *g, float *b, float h, float s, float v);
@@ -73,9 +75,9 @@ private:
 /// Moyenne de la vitesse obtenue  grace a la vitesse lue, par l'addition de moyenne_vitesse et moyenne_vitesse2 pour obtenir la vitesse finale
 	
 	double vitesse_lue;							/*! Vitesse lue par le programme */
-	double moyenne_vitesse = 1;
-	double moyenne_vitesse2 = 1;				
-	double moyenne_vitesseT = 1;
+	double moyenne_vitesse = 1;					/*! Variables servant à l'éliminations de valeurs abérrante de la vitesse*/
+	double moyenne_vitesse2 = 1;				/*! Variables servant à l'éliminations de valeurs abérrante de la vitesse*/
+	double moyenne_vitesseT = 1;				/*! Variables servant à l'éliminations de valeurs abérrante de la vitesse*/
 
 	int lastY1 = -1;							/*! Le seul et l'unique */
 };			

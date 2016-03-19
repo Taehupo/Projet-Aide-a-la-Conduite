@@ -30,16 +30,25 @@ Lane::Lane()
 Lane::~Lane()
 {}
 
+/**
+* Accésseur de la coordonnée x de la ligne
+*/
 unsigned int Lane::getLaneX()
 {
 	return x; /*! renvoie x */
 }
 
+/**
+* Accésseur de la coordonnée y de la ligne
+*/
 unsigned int Lane::getLaneY()
 {
 	return y; /*! renvoie y */
 }
 
+/**
+* Accésseur de l'ID de la ligne
+*/
 long long unsigned int Lane::getLaneID()
 {
 	return ID; /*! renvoie l'ID de la ligne */

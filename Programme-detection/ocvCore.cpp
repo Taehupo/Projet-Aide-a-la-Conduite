@@ -76,6 +76,9 @@ void OcvCore::showFrameWindow()
 	cvShowImage("frame", frame);
 }
 
+/**
+* Cette fonction trace une grille à l'écran
+*/
 void traceGrille(IplImage* imgTracking)/// Cette fonction permet d'afficher un quadrillage sur la vidéo, on voit alors les différent carré ou l'ont peut détecté des éléments.\n Cela permet d'observer par exemple les zones de la détection des lignes.
 {
 	for (unsigned int i=0; i<500; i+=100) 
@@ -88,6 +91,10 @@ void traceGrille(IplImage* imgTracking)/// Cette fonction permet d'afficher un q
 	}
 }
 
+
+/*
+* Cette fonction permet de détecter les plusieurs objets dont nous avons besoins
+*/
 void OcvCore::trackObject(IplImage* imgThresh, int& ni, const int & temps)
 {
 	CvSeq* contour;  //Pointeur vers un contour
@@ -231,6 +238,10 @@ for (uint i=0; i<2; i++) //traçage des lignes
   cvReleaseMemStorage(&storage);
 }
 
+
+/**
+* Cette fonction permet l'alternance entre HSV & RGB pour le flux vidéo
+*/
 void OcvCore::HSVtoRGB (float *r, float *g, float *b, float h, float s, float v)
 {
 	int i;
@@ -303,24 +314,50 @@ void OcvCore::HSVtoRGB (float *r, float *g, float *b, float h, float s, float v)
 
 }
 
+
+/**
+* Accésseur de ImgTracking
+*/
 IplImage * OcvCore::getImgTracking()
 {
 	return imgTracking;
 }
 
+/**
+* Accésseur de Capture
+*/
 CvCapture * OcvCore::getCapture()
 {
 	return capture;
 }
 
+/**
+* Accésseur de Vitesse_T
+*/
+double OcvCore::getVitesseT()
+{
+	return moyenne_vitesse_T;
+}
+
+/**
+* Mutateur d'ImgTracking
+*/
 void OcvCore::setImgTracking(IplImage* temp)
 {
 	imgTracking = temp;
 }
 
+/**
+* Mutateur de Capture
+*/
 void OcvCore::setCapture(CvCapture* temp)
 {
 	capture = temp;
+}
+
+void OcvCore::setVitesseT(double temp)
+{
+	moyenne_vitesse_T = temp;
 }
 
 const string OcvCore::doubleToStr(double x){
