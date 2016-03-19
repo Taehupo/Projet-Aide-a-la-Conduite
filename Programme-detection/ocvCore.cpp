@@ -322,3 +322,13 @@ void OcvCore::setCapture(CvCapture* temp)
 {
 	capture = temp;
 }
+
+const string OcvCore::doubleToStr(double x){
+	stringstream ss;
+	ss << x;
+	return ss.str();
+}
+
+double OcvCore::distance2pt (CvPoint* p0, CvPoint* p1) { //Distance entre deux points
+	return sqrt(pow(p0->x - p1->x, 2) + pow(p0->y - p1->y,2));
+}

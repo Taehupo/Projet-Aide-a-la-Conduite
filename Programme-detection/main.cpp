@@ -14,6 +14,7 @@ using namespace std::chrono;
 using namespace cv;
 
 #include "Element.hpp"
+#include "laneDetection.hpp"
 #include "Erreur.hpp"
 #include "Filtre.hpp"
 #include "Panneaux.hpp"
@@ -21,7 +22,6 @@ using namespace cv;
 #include "Vehicule_C.hpp"
 #include "myException.hpp"
 #include "voiesCirculations.hpp"
-#include "laneDetection.hpp"
 #include "ocvCore.hpp"
 
 int main(int argc, char const *argv[])

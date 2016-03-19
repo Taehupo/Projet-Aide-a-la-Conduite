@@ -51,6 +51,9 @@ public:
 	//Permet la conversion de la vidéo HSV en RGB
 	void HSVtoRGB (float *r, float *g, float *b, float h, float s, float v);
 
+	const string doubleToStr(double x);
+	double distance2pt (CvPoint* p0, CvPoint* p1) ;
+
 private:
 	std::string fileName;
 	CvCapture * capture; 				// Vidéo

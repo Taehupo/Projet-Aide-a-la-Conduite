@@ -12,7 +12,6 @@ using namespace std;
 #include "Filtre.hpp"
 
 Filtre::Filtre()
-:
 {
 	///Constructeur de la classe Filtre (En construction)
 }
