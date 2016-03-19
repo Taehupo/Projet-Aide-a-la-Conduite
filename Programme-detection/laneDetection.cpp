@@ -54,27 +54,44 @@ long long unsigned int Lane::getLaneID()
 	return ID; /*! renvoie l'ID de la ligne */
 }
 
+
+/**
+* Mutateur de la coordonnée x
+*/
 void Lane::setLaneX(unsigned int _x)
 {
 	x = _x; /*! Modifiation de x */
 }
 
+/**
+* Mutateur de la coordonnée y
+*/
 void Lane::setLaneY(unsigned int _y)
 {
 	y = _y; /*! Modifiation de y */
 }
 
+/**
+* Rémanence de l'ancienne architecture
+*/
 void Lane::detecLane(IplImage* imgTresh)
 {
 	/*! Permet de détecter les lignes : celle de droite et celle de gauche, sur une image.*/
 	/*! fonction à compléter : supprimer ce commentaire un fois remplit */
 }
 
+
+/**
+* Calcule la vitesse entre deux points
+*/
 double Lane::distance2pt (CvPoint* p0, CvPoint* p1)
 { 
 	return sqrt(pow(p0->x - p1->x, 2) + pow(p0->y - p1->y,2)); /*! Distance entre deux points*/
 }
 
+/**
+* Inverse deux points
+*/
 void Lane::swapCvPoint (CvPoint * p1, CvPoint * p2) 
 {
 	CvPoint tmp = *p1;
@@ -82,6 +99,9 @@ void Lane::swapCvPoint (CvPoint * p1, CvPoint * p2)
 	*p2 = tmp;
 }
 
+/**
+* S'occupe des lignes
+*/
 bool Lane::ligne (CvPoint *pt[4])
 {
 	/*! Permet de detecter la ligne ? */
