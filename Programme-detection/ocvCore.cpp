@@ -231,6 +231,78 @@ for (uint i=0; i<2; i++) //traçage des lignes
   cvReleaseMemStorage(&storage);
 }
 
+void OcvCore::HSVtoRGB (float *r, float *g, float *b, float h, float s, float v)
+{
+	int i;
+
+	float f, p, q, t;
+	//cout <<endl<<"base"<< h <<" "<<s<<" "<<v<<" "<<endl;
+	h=h*2.0;
+	s=s/255.0;
+	v=v/255.0;
+	//cout <<endl<< h <<" "<<s<<" "<<v<<" "<<endl;
+	
+	if (s==0)
+	{
+		*r = *g = *b = v;
+		cout << "vlvllvrnjde" << endl;
+		return;
+	}
+	
+	h/=60;
+	i=(int)h;
+	f=h-i;
+	p=v*(1-s);
+	q=v*(1-s*f);
+	t=v*(1-s*(1-f));
+
+	switch( i )
+	{
+		case 0:
+			*r = v;
+			*g = t;
+			*b = p;
+			break;
+		case 1:
+			*r = q;
+			*g = v;
+			*b = p;
+			break;
+		case 2:
+			*r = p;
+			*g = v;
+			*b = t;
+			break;
+		case 3:
+			*r = p;
+			*g = q;
+			*b = v;
+			break;
+		case 4:
+			*r = t;
+			*g = p;
+			*b = v;
+			break;
+		default:		// case 5:
+			*r = v;
+			*g = p;
+			*b = q;
+			break;
+	}
+	
+
+	*r *= 255;
+	*g *= 255;
+	*b *= 255;
+	//cout << "rgb" << *r << " " << *g << " " << *b << endl;
+
+	*r = (int)*r;
+	*g = (int)*g;
+	*b = (int)*b;
+	//cout << "rgb" << *r << " " << *g << " " << *b << endl;
+
+}
+
 IplImage * OcvCore::getImgTracking()
 {
 	return imgTracking;
