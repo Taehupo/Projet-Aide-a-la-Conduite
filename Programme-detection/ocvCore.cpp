@@ -357,7 +357,7 @@ void OcvCore::setCapture(CvCapture* temp)
 
 void OcvCore::setVitesseT(double temp)
 {
-	moyenne_vitesse_T = temp;
+	moyenne_vitesseT = temp;
 }
 
 const string OcvCore::doubleToStr(double x){
