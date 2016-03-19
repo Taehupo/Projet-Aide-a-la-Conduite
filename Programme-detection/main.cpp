@@ -13,6 +13,7 @@ using namespace std;
 using namespace std::chrono;
 using namespace cv;
 
+#include "Element.hpp"
 #include "laneDetection.hpp"
 #include "ocvCore.hpp"
 
