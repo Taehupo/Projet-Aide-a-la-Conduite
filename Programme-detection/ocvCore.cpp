@@ -336,7 +336,7 @@ CvCapture * OcvCore::getCapture()
 */
 double OcvCore::getVitesseT()
 {
-	return moyenne_vitesse_T;
+	return moyenne_vitesseT;
 }
 
 /**
