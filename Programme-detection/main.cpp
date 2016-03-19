@@ -14,6 +14,13 @@ using namespace std::chrono;
 using namespace cv;
 
 #include "Element.hpp"
+#include "Erreur.hpp"
+#include "Filtre.hpp"
+#include "Panneaux.hpp"
+#include "Vehicule_A.hpp"
+#include "Vehicule_C.hpp"
+#include "myException.hpp"
+#include "voiesCirculations.hpp"
 #include "laneDetection.hpp"
 #include "ocvCore.hpp"
 
