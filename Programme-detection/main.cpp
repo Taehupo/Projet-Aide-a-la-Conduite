@@ -188,14 +188,15 @@ int main(int argc, char const *argv[])
 			chaud->trackObject(&newi, i, temps); // Recherche et affichage de tout les contours
 			
 			bool grid=false; //Afficher la grille : je sais pas s'il a une place dans le code mais mieux le vaut ici
-			if (grid) chaud->traceGrille(*chaud->getImgTracking()); //add
+			if (grid) chaud->traceGrille(chaud->getImgTracking()); //add
 
 			//Affichage de la vidéo sur l'écran
-			Erreur *panal = new Erreur(vit,0,0,moyenne_vitesseT);
-			putText (frameCPP,doubleToStr(int(moyenne_vitesseT)).c_str(),cvPoint(40,30), FONT_HERSHEY_SIMPLEX , 1, cvScalar(0,(moyenne_vitesseT<=110)?255:0,(moyenne_vitesseT>110)?255:0)); //Affichage de la vitesse BGR
-			if (moyenne_vitesseT>110) panal->affichePVR(5,30);
+			string vit = "Vous depasser la vitesse";
+			Erreur *panal = new Erreur(vit,0,0,chaud->getVitesseT()); // get de oyenne_vitesseT
+			putText (frameCPP,panal->doubleToStr(int(chaud->getVitesseT())).c_str(),cvPoint(40,30), FONT_HERSHEY_SIMPLEX , 1, cvScalar(0,(chaud->getVitesseT()<=110)?255:0,(chaud->getVitesseT()>110)?255:0)); //Affichage de la vitesse BGR
+			if (chaud->getVitesseT()>110) panal->affichePVR(5,30,chaud->getImgTracking());
 		
-			add(frameCPP, cvarrToMat(*chaud->getImgTracking()), frameCPP);
+			add(frameCPP, cvarrToMat(chaud->getImgTracking()), frameCPP);
 
 			imwrite("test.jpg", frameCPP); //Sortie de l'image
 		
@@ -237,7 +238,7 @@ int main(int argc, char const *argv[])
 	        	Nettoyage
 	        */        
         
-	        cvZero(*chaud->getImgTracking()); // Supprimer les autres points
+	        cvZero(chaud->getImgTracking()); // Supprimer les autres points
 
 			//Clean up used images
 			//cvReleaseImage(&imgGrayScale); // destruction des images         
