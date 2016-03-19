@@ -185,16 +185,17 @@ int main(int argc, char const *argv[])
 			}
 			// !!!!!!!!!!!!!!!!!! //
 			IplImage newi = imgGrayScaleCPP;
-			trackObject(&newi, i, temps); // Recherche et affichage de tout les contours
+			chaud->trackObject(&newi, i, temps); // Recherche et affichage de tout les contours
 			
 			bool grid=false; //Afficher la grille : je sais pas s'il a une place dans le code mais mieux le vaut ici
 			if (grid) chaud->traceGrille(*chaud->getImgTracking()); //add
 
 			//Affichage de la vidéo sur l'écran
+			Erreur *panal = new Erreur(vit,0,0,moyenne_vitesseT);
 			putText (frameCPP,doubleToStr(int(moyenne_vitesseT)).c_str(),cvPoint(40,30), FONT_HERSHEY_SIMPLEX , 1, cvScalar(0,(moyenne_vitesseT<=110)?255:0,(moyenne_vitesseT>110)?255:0)); //Affichage de la vitesse BGR
-			if (moyenne_vitesseT>110) panneau(5,30);
+			if (moyenne_vitesseT>110) panal->affichePVR(5,30);
 		
-			add(frameCPP, cvarrToMat(imgTracking), frameCPP);
+			add(frameCPP, cvarrToMat(*chaud->getImgTracking()), frameCPP);
 
 			imwrite("test.jpg", frameCPP); //Sortie de l'image
 		
@@ -245,7 +246,7 @@ int main(int argc, char const *argv[])
     }
 
     cvDestroyAllWindows();
-    cvReleaseImage(chaud->getImgTracking()); // modif
+    cvReleaseImage(&chaud->getImgTracking()); // modif
     //cvReleaseCapture(&capture);  // pas a supprimer
 
 	// Avant revu proto2
