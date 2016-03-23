@@ -192,10 +192,10 @@ for (uint i=0; i<2; i++) //traçage des lignes
 {
 	if (ligne_tab[i].utilisee) 
 	{
-		cvLine(imgTracking, cvPoint(ligne_tab[i].points[0].x, ligne_tab[i].points[0].y), cvPoint(ligne_tab[i].points[1].x, ligne_tab[i].points[1].y), cvScalar(0,(i==1)?255:0,255),4);
-		cvLine(imgTracking, cvPoint(ligne_tab[i].points[1].x, ligne_tab[i].points[1].y), cvPoint(ligne_tab[i].points[2].x, ligne_tab[i].points[2].y), cvScalar(0,(i==1)?255:0,255),4);
-		cvLine(imgTracking, cvPoint(ligne_tab[i].points[2].x, ligne_tab[i].points[2].y), cvPoint(ligne_tab[i].points[3].x, ligne_tab[i].points[3].y), cvScalar(0,(i==1)?255:0,255),4);
-		cvLine(imgTracking, cvPoint(ligne_tab[i].points[3].x, ligne_tab[i].points[3].y), cvPoint(ligne_tab[i].points[0].x, ligne_tab[i].points[3].y), cvScalar(0,(i==1)?255:0,255),4);
+		//cvLine(imgTracking, cvPoint(ligne_tab[i].points[0].x, ligne_tab[i].points[0].y), cvPoint(ligne_tab[i].points[1].x, ligne_tab[i].points[1].y), cvScalar(0,(i==1)?255:0,255),4);
+		//cvLine(imgTracking, cvPoint(ligne_tab[i].points[1].x, ligne_tab[i].points[1].y), cvPoint(ligne_tab[i].points[2].x, ligne_tab[i].points[2].y), cvScalar(0,(i==1)?255:0,255),4);
+		//cvLine(imgTracking, cvPoint(ligne_tab[i].points[2].x, ligne_tab[i].points[2].y), cvPoint(ligne_tab[i].points[3].x, ligne_tab[i].points[3].y), cvScalar(0,(i==1)?255:0,255),4);
+		//cvLine(imgTracking, cvPoint(ligne_tab[i].points[3].x, ligne_tab[i].points[3].y), cvPoint(ligne_tab[i].points[0].x, ligne_tab[i].points[3].y), cvScalar(0,(i==1)?255:0,255),4);
 		ligne_tab[i].utilisee = false;
 		
 		if (i==0) 

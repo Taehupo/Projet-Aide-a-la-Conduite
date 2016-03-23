@@ -18,8 +18,6 @@ using namespace std;
 using namespace std::chrono;
 using namespace cv;
 
-static double avg = 100;
-
 #include "Vehicule_C.hpp"
 
 Vehicule_C::Vehicule_C()

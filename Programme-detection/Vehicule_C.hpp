@@ -18,7 +18,7 @@ class Vehicule_C : public Element
 {
 private:
 	double vitesse [3] = {100}; // à améliorer
-	static double avg;
+	double avg = 100;
 public:
 	Vehicule_C();
 	~Vehicule_C();

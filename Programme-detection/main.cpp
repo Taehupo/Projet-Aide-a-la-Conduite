@@ -14,6 +14,7 @@ using namespace std::chrono;
 using namespace cv;
 
 #include "Element.hpp"
+#include "ocvCore.hpp"
 #include "laneDetection.hpp"
 #include "Erreur.hpp"
 #include "Filtre.hpp"
@@ -22,7 +23,7 @@ using namespace cv;
 #include "Vehicule_C.hpp"
 #include "myException.hpp"
 #include "voiesCirculations.hpp"
-#include "ocvCore.hpp"
+
 
 int main(int argc, char const *argv[])
 {
@@ -188,13 +189,17 @@ int main(int argc, char const *argv[])
 			chaud->trackObject(&newi, i, temps); // Recherche et affichage de tout les contours
 			
 			bool grid=false; //Afficher la grille : je sais pas s'il a une place dans le code mais mieux le vaut ici
-			if (grid) chaud->traceGrille(chaud->getImgTracking()); //add
+			/*if (grid)
+				chaud->traceGrille(chaud->getImgTracking()); //add*/
 
 			//Affichage de la vidéo sur l'écran
 			string vit = "Vous depasser la vitesse";
-			Erreur *panal = new Erreur(vit,0,0,chaud->getVitesseT()); // get de oyenne_vitesseT
+			Erreur *panal = new Erreur(vit,0,0,chaud->getVitesseT()); // get de moyenne_vitesseT
 			putText (frameCPP,panal->doubleToStr(int(chaud->getVitesseT())).c_str(),cvPoint(40,30), FONT_HERSHEY_SIMPLEX , 1, cvScalar(0,(chaud->getVitesseT()<=110)?255:0,(chaud->getVitesseT()>110)?255:0)); //Affichage de la vitesse BGR
-			if (chaud->getVitesseT()>110) panal->affichePVR(5,30,chaud->getImgTracking());
+			if (chaud->getVitesseT()>110) 
+				panal->affichePVR(5,30,chaud->getImgTracking());
+
+			//cout << "tesst : " << panal->doubleToStr(int(chaud->getVitesseT())).c_str() << endl;
 		
 			add(frameCPP, cvarrToMat(chaud->getImgTracking()), frameCPP);
 

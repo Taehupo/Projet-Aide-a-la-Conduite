@@ -25,6 +25,8 @@ private:
 public:
 	Erreur(string, unsigned int, unsigned int, double);
 	~Erreur();
+
+	double getVr();
 	
 	void affichePVR(unsigned int xPos, unsigned int yPos, IplImage *);
 	const string doubleToStr(double vr);

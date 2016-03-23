@@ -22,7 +22,7 @@ private:
 	Lane * ligne_1; 				/// Elle se compose d'une ligne détectée
 	Lane * ligne_2; 				/// Et d'une autre ligne
 	unsigned int ID;				/// D'une ID pour pouvoir reconnaitre quelle est cette voie
-	static unsigned int tempID;		/// Une ID temporaire pour s'occuper des affectation & compter le nombre de lignes
+	unsigned int tempID = 0;		/// Une ID temporaire pour s'occuper des affectation & compter le nombre de lignes
 	voieCirculation();				
 
 public:

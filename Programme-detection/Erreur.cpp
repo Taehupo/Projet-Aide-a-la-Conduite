@@ -45,6 +45,9 @@ void Erreur::affichePVR(unsigned int xPos, unsigned int yPos, IplImage * imgTrac
 const string Erreur::doubleToStr(double vr) /// Permet l'affichage de la vitesse du véhicule du conducteur
 {
 	stringstream ss;
- 	 ss << xPos;
+ 	 ss << vr;
   	return ss.str(); /// renvoie le la vitesse du véhicule en une chaine de caractère
 }
+
+double Erreur::getVr()
+{return vr;}
